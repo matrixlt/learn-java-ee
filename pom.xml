@@ -23,7 +23,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <!--<modules></modules>-->
+    <modules>
+        <module>jsf</module>
+        <module>servlet</module>
+        <module>jsf</module>
+        <module>servlet</module>
+    </modules>
     <properties>
         <!-- Use JRE 1.8 for GlassFish -->
         <maven.compiler.source>1.8</maven.compiler.source>
