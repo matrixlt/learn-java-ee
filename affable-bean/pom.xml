@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>learn-java-ee</artifactId>
+        <groupId>com.linyinfeng.projects</groupId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.linyinfeng.projects</groupId>
+    <artifactId>affable-bean</artifactId>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>Affable Bean</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>nl.geodienstencentrum.maven</groupId>
+                <artifactId>sass-maven-plugin</artifactId>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <source>
+                                <directory>
+                                    ${project.basedir}/src/main/webapp/resources/scss
+                                </directory>
+                                <includes>
+                                    <include>*.scss</include>
+                                </includes>
+                            </source>
+                            <destination>src/main/webapp/resources//css</destination>
+                        </resource>
+                    </resources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-css-using-sass</id>
+                        <goals>
+                            <goal>update-stylesheets</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

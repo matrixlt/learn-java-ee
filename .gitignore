@@ -13,3 +13,7 @@ buildNumber.properties
 # IntelliJ IDEA
 .idea/
 *.iml
+
+#Other
+.project
+.settings

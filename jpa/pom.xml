@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>learn-java-ee</artifactId>
         <groupId>com.linyinfeng.projects</groupId>
+        <artifactId>learn-java-ee</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>jsf</artifactId>
-    <name>JSF</name>
+    <artifactId>jpa</artifactId>
     <packaging>pom</packaging>
+    <name>JPA</name>
     <modules>
-        <module>jsf-simple-hello</module>
-        <module>jsf-form-hello</module>
-    <module>facelets-playground</module>
+        <module>jpa-simple-model</module>
+    <module>jpa-student-manager</module>
   </modules>
 </project>

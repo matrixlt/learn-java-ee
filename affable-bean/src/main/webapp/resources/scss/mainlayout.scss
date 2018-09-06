@@ -1,0 +1,13 @@
+$test-color: greenyellow;
+
+header {
+    border: solid 0.0625rem $test-color;
+    width: 100%;
+    text-align: center;
+}
+
+footer {
+    border: solid 0.0625rem $test-color;
+    width: 100%;
+    text-align: center;
+}
