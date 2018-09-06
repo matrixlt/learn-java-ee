@@ -17,3 +17,4 @@ buildNumber.properties
 #Other
 .project
 .settings
+nb-configuration.xml
