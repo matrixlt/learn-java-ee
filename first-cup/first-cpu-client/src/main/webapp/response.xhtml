@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:fc="http://xmlns.jcp.org/jsf/composite/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+        <ui:composition template="templates/common.xhtml">
+            <ui:define name="main-content">
+                <p>
+                    <c:set var="ageDiff" value="#{dukesBirthday.ageDiff}" />
+                    <c:set var="ageDiffAbs" value="#{dukesBirthday.ageDiffAbs}" />
+                    <c:choose>
+                        <c:when test="#{ageDiffAbs gt 1}">
+                            <c:set var="yearString" value="${webMessages.Years}" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="yearString" value="${webMessages.Year}" />
+                        </c:otherwise>
+                    </c:choose>
+                    <c:choose>
+                        <c:when test="#{ageDiff gt 0}">
+                            <h:outputFormat value="${webMessages.Older}">
+                                <f:param value="#{ageDiffAbs}" />
+                                <f:param value="#{yearString}" />
+                            </h:outputFormat>
+                        </c:when>
+                        <c:when test="#{ageDiff lt 0}">
+                            <h:outputFormat value="${webMessages.Younger}">
+                                <f:param value="#{ageDiffAbs}" />
+                                <f:param value="#{yearString}" />
+                            </h:outputFormat>
+                        </c:when>
+                        <c:otherwise>
+                            <h:outputText value="${webMessages.SameAge}" />
+                        </c:otherwise>
+                    </c:choose>
+                </p>
+
+                <p>
+                    <!-- This Output Text should not be rendered -->
+                    <h:outputFormat value="${webMessages.AverageAge}">
+                        <f:param value="#{dukesBirthday.averageAgeDifference}" />
+                    </h:outputFormat>
+                </p>
+
+                <h:form>
+                    <h:commandButton id="back" value="${webMessages.Back}" action="back" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

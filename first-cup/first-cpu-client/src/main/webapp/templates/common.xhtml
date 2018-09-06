@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:fc="http://xmlns.jcp.org/jsf/composite/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      lang="${languageManager.currentLocaleInBCP47}">
+    <f:view locale="${languageManager.currentLocale}" encoding="${webConfigurations.Encoding}">
+        <h:head>
+            <title><h:outputText value="${webMessages.Title}" /></title>
+            <h:outputStylesheet name="css/style.css"/>
+        </h:head>
+        <h:body>
+            <h1 class="page-title"><h:outputText value="${webMessages.Title}" /></h1>
+
+            <h:form id="language-form">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="${webMessages.Language}${webMessages.Colon}" />
+                    <h:selectOneMenu value="#{languageManager.currentLocale}" onchange="submit()"
+                                     valueChangeListener="#{languageManager.changeLocale}">
+                        <f:selectItems value="${languageManager.getLocales()}" />
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+
+            <main id="main">
+                <ui:insert name="main-content">
+                    Main
+                </ui:insert>
+            </main>
+        </h:body>
+    </f:view>
+</html>
+

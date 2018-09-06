@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 @Path("dukesAge")
 public class DukesAgeResource {
@@ -12,7 +13,7 @@ public class DukesAgeResource {
     private static final Calendar DUKES_BIRTHDAY = new GregorianCalendar(1995, Calendar.MAY, 23);
 
     @GET
-    @Produces("text/plain")
+    @Produces(MediaType.TEXT_PLAIN)
     public String getText() {
         Calendar now = GregorianCalendar.getInstance();
         int age = now.get(Calendar.YEAR) - DUKES_BIRTHDAY.get(Calendar.YEAR);

@@ -18,5 +18,6 @@
     </dependencies>
   <modules>
     <module>dukes-age</module>
+    <module>first-cpu-client</module>
   </modules>
 </project>
