@@ -43,12 +43,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!--        <cargo.container.containerId>glassfish5x</cargo.container.containerId>
+        <cargo.container.containerId>glassfish5x</cargo.container.containerId>
         <cargo.container.home>${user.home}/glassfish5</cargo.container.home>
         <cargo.container.type>installed</cargo.container.type>
         <cargo.configuration.type>existing</cargo.configuration.type>
         <cargo.configuration.home>${cargo.container.home}/glassfish/domains</cargo.configuration.home>
-        <glassfish.domain.name>domain1</glassfish.domain.name>-->
+        <glassfish.domain.name>domain1</glassfish.domain.name>
     </properties>
 
     <!-- Build Settings -->
@@ -73,7 +73,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--            <plugin>
+            <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
                 <configuration>
@@ -93,7 +93,7 @@
                         </properties>
                     </configuration>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -107,11 +107,11 @@
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>3.0.0-M2</version>
                 </plugin>
-                <!--                <plugin>
+                                <plugin>
                     <groupId>org.codehaus.cargo</groupId>
                     <artifactId>cargo-maven2-plugin</artifactId>
                     <version>1.6.9</version>
-                </plugin>-->
+                </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
