@@ -6,12 +6,10 @@
     <application>
         <resource-bundle>
             <base-name>firstcup.WebConfigurations</base-name>
-            <description>Web Configurations</description>
             <var>webConfigurations</var>
         </resource-bundle>
         <resource-bundle>
             <base-name>firstcup.WebMessages</base-name>
-            <description>Web Messages</description>
             <var>webMessages</var>
         </resource-bundle>
         <locale-config>
@@ -19,11 +17,10 @@
             <supported-locale>zh_CN</supported-locale>
         </locale-config>
     </application>
-    
+
     <navigation-rule>
         <from-view-id>/response.xhtml</from-view-id>
         <navigation-case>
-            <from-action>back</from-action>
             <from-outcome>back</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>

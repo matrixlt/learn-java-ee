@@ -7,12 +7,11 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.linyinfeng.projects</groupId>
-    <artifactId>first-cpu-client</artifactId>
+    <artifactId>first-cup-client</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>First Cpu Client</name>
+    <name>First Cup Client</name>
     
     <dependencies>
         <dependency>
