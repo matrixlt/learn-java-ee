@@ -1,0 +1,26 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!-- Add a settings.xml to your .m2/ folder like this -->
+    <profiles>
+        <profile>
+            <id>learn-java-ee-properties</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <cargo.container.containerId>glassfish5x</cargo.container.containerId>
+                <cargo.container.home>${user.home}/glassfish5</cargo.container.home>
+                <cargo.container.type>installed</cargo.container.type>
+                <cargo.configuration.type>existing</cargo.configuration.type>
+                <cargo.configuration.home>
+                    ${user.home}/glassfish5/glassfish/domains/domain1
+                </cargo.configuration.home>
+                <cargo.configuration.glassfish.domain.name>
+                    domain1
+                </cargo.configuration.glassfish.domain.name>
+            </properties>
+        </profile>
+    </profiles>
+</settings>
