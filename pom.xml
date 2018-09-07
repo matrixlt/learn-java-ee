@@ -43,12 +43,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <cargo.container.containerId>glassfish5x</cargo.container.containerId>
-        <cargo.container.home>${user.home}/glassfish5</cargo.container.home>
-        <cargo.container.type>installed</cargo.container.type>
-        <cargo.configuration.type>existing</cargo.configuration.type>
-        <cargo.configuration.home>${cargo.container.home}/glassfish/domains</cargo.configuration.home>
-        <glassfish.domain.name>domain1</glassfish.domain.name>
+
     </properties>
 
     <!-- Build Settings -->
@@ -66,7 +61,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>[3.2.2,)</version>
+                                    <version>[3.2.5,)</version>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>
@@ -87,7 +82,7 @@
                         <home>${cargo.configuration.home}</home>
                         <properties>
                             <cargo.glassfish.domain.name>
-                                ${glassfish.domain.name}
+                                ${cargo.configuration.glassfish.domain.name}
                             </cargo.glassfish.domain.name>
                             <cargo.remote.password />
                         </properties>
