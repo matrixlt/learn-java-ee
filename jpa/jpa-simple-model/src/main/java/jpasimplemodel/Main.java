@@ -1,11 +1,7 @@
 package jpasimplemodel;
 
+import javax.persistence.*;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 public class Main {
     private static final String PERSISTENCE_UNIT_NAME = "todos";
@@ -14,15 +10,13 @@ public class Main {
     public static void main(String[] args) {
         Main.factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
-        
-        Query q = em.createQuery("select t from Todo t");
+
+        TypedQuery<Todo> q = em.createQuery("select t from Todo t", Todo.class);
         List<Todo> todoList = q.getResultList();
-        todoList.forEach((todo) -> {
-            System.out.println(todo);
-        });
+        todoList.forEach(System.out::println);
         System.out.println("Size: " + todoList.size());
 
-        // create new todo
+        // create new
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         Todo todo = new Todo();
