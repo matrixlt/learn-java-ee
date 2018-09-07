@@ -1,7 +1,8 @@
 package firstcup.ejb;
 
+import firstcup.entity.FirstCupUser;
+import java.util.List;
 import java.util.Date;
-import javax.ws.rs.WebApplicationException;
 
 public interface DukesBirthdayManager {
 
@@ -12,4 +13,8 @@ public interface DukesBirthdayManager {
     public int getAgeDifferenceToDuke(Date birthday);
 
     public double getAverageAgeDifference();
+    
+    public List<FirstCupUser> getAllUser();
+    
+    public List<FirstCupUser> getUserRange(int from, int to);
 }

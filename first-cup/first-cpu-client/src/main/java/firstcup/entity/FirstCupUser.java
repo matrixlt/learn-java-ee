@@ -10,11 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name = "first_cup_user")
 @NamedQuery(name = "findAverageAgeDifference",
         query = "SELECT AVG(u.ageDifference) FROM FirstCupUser u")
 public class FirstCupUser implements Serializable {
@@ -40,9 +38,9 @@ public class FirstCupUser implements Serializable {
     }
 
     public FirstCupUser(Date date, int difference) {
-        Calendar birthday = new GregorianCalendar();
-        birthday.setTime(date);
-        this.birthday = birthday;
+        Calendar inCalendar = new GregorianCalendar();
+        inCalendar.setTime(date);
+        this.birthday = inCalendar;
         this.ageDifference = difference;
     }
 

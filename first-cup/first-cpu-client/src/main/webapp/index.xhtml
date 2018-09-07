@@ -3,30 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:fc="http://xmlns.jcp.org/jsf/composite/components"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:body>
-        <ui:composition template="templates/common.xhtml">
-            <ui:define name="main-content">
-                <p class="welcome-message">
-                    <h:outputText value="${webMessages.Welcome}" />
+    <ui:composition template="resources/templates/common.xhtml">
+        <ui:define name="main-content">
+            <p class="welcome-message">
+                <h:outputText value="${webMessages.Welcome}" />
+            </p>
+            <h:outputFormat value="${webMessages.DukesAgeIs}">
+                <f:param value="#{dukesBirthday.dukesAge}" />
+            </h:outputFormat>
+            <h:form>
+                <p><h:outputText value="${webMessages.Instructions}" /></p>
+                <p>
+                    <h:outputFormat value="${webMessages.YourBD}">
+                        <f:param  value="${webMessages.BirthdayPattern}" />
+                    </h:outputFormat>
                 </p>
-                <h:outputFormat value="${webMessages.DukesAgeIs}">
-                    <f:param value="#{dukesBirthday.dukesAge}" />
-                </h:outputFormat>
-                <h:form>
-                    <p><h:outputText value="${webMessages.Instructions}" /></p>
-                    <p>
-                        <h:outputFormat value="${webMessages.YourBD}">
-                            <f:param  value="${webMessages.BirthdayPattern}" />
-                        </h:outputFormat>
-                    </p>
-                    <fc:inputDate id="user-birthday" date="#{dukesBirthday.yourBirthday}" />
-                    <h:commandButton value="${webMessages.Submit}" action="#{dukesBirthday.processBirthday}" />
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </h:body>
+                <fc:inputDate id="user-birthday" date="#{dukesBirthday.yourBirthday}" />
+                <h:commandButton value="${webMessages.Submit}" action="#{dukesBirthday.processBirthday}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
 

@@ -1,8 +1,10 @@
 package fristcup.web;
 
 import firstcup.ejb.DukesBirthdayManager;
+import firstcup.entity.FirstCupUser;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -10,13 +12,12 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.NotNull;
-import javax.ws.rs.WebApplicationException;
 
 @Named
 @SessionScoped
 public class DukesBirthday implements Serializable {
 
-    private static Logger logger = Logger.getLogger(DukesBirthday.class.getName());
+    private static final Logger logger = Logger.getLogger(DukesBirthday.class.getName());
 
     @Inject
     private DukesBirthdayManager birthdayManager;
@@ -42,7 +43,7 @@ public class DukesBirthday implements Serializable {
     }
 
     public String processBirthday() {
-        this.ageDiff = birthdayManager.getAgeDifferenceToDuke(this.yourBirthday);
+        this.ageDiff = birthdayManager.getAgeDifferenceToDuke((Date) this.yourBirthday.clone());
         this.ageDiffAbs = Math.abs(this.ageDiff);
         birthdayManager.saveUserBirthday(this.yourBirthday);
         return "response";
@@ -70,5 +71,9 @@ public class DukesBirthday implements Serializable {
 
     public void setAgeDiff(int ageDiff) {
         this.ageDiff = ageDiff;
+    }
+    
+    public List<FirstCupUser> getAllUser() {
+        return birthdayManager.getAllUser();
     }
 }

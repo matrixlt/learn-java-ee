@@ -1,18 +1,17 @@
 package firstcup.ejb;
 
 import firstcup.entity.FirstCupUser;
-import java.io.IOException;
+import firstcup.facade.FirstCupUserFacade;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
@@ -21,15 +20,15 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
 @Stateless
-public class DefaultDukesBirthdayManager implements DukesBirthdayManager {
+public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
 
-    private static Logger logger = Logger.getLogger(DefaultDukesBirthdayManager.class.getName());
+    private static final Logger logger = Logger.getLogger(DefaultDukesBirthdayManagerBean.class.getName());
 
     @NotNull
     private Optional<Integer> dukesAge = Optional.empty();
 
-    @PersistenceContext(unitName = "com.linyinfeng.projects.first-cpu-client")
-    private EntityManager em;
+    @Inject
+    private FirstCupUserFacade userFacade;
 
     @Produces
     @PostConstruct
@@ -58,8 +57,8 @@ public class DefaultDukesBirthdayManager implements DukesBirthdayManager {
 
     @Override
     public void saveUserBirthday(Date birthday) {
-        FirstCupUser data = new FirstCupUser(birthday, getAgeDifferenceToDuke(birthday));
-        em.persist(data);
+        FirstCupUser user = new FirstCupUser(birthday, getAgeDifferenceToDuke(birthday));
+        userFacade.create(user);
     }
 
     @Override
@@ -72,14 +71,9 @@ public class DefaultDukesBirthdayManager implements DukesBirthdayManager {
 
     @Override
     public double getAverageAgeDifference() {
-        Query query = em.createNamedQuery("findAverageAgeDifference");
-        logger.log(Level.INFO, "Average age difference query is: {0}", query);
-        Double avgAgeDiff = (Double) query.getSingleResult();
-        logger.log(Level.INFO, "Average age difference is: {0}", avgAgeDiff);
-        if (avgAgeDiff == null) {
-            avgAgeDiff = 0.0;
-        }
-        return avgAgeDiff;
+        double result = userFacade.findAverageAgeDifference();
+        logger.log(Level.SEVERE, "average age difference is {0}", result);
+        return result;
     }
 
     @Override
@@ -107,5 +101,15 @@ public class DefaultDukesBirthdayManager implements DukesBirthdayManager {
             age--;
         }
         return age;
+    }
+
+    @Override
+    public List<FirstCupUser> getAllUser() {
+        return userFacade.findAll();
+    }
+
+    @Override
+    public List<FirstCupUser> getUserRange(int from, int to) {
+        return userFacade.findRange(new int[] {from, to});
     }
 }
