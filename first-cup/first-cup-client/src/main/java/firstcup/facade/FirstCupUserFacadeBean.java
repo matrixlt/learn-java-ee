@@ -1,6 +1,7 @@
 package firstcup.facade;
 
 import firstcup.entity.FirstCupUser;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,9 +9,9 @@ import javax.persistence.Query;
 
 @Stateless
 public class FirstCupUserFacadeBean extends AbstractFacade<FirstCupUser>
-        implements FirstCupUserFacade{
-    
-    @PersistenceContext(unitName = "com.linyinfeng.projects.first-cpu-client")
+        implements FirstCupUserFacade {
+
+    @PersistenceContext(unitName = "firstcupclient")
     private EntityManager em;
 
     public FirstCupUserFacadeBean() {

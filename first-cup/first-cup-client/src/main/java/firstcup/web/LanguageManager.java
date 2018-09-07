@@ -1,16 +1,15 @@
-package fristcup.web;
+package firstcup.web;
 
+import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
-import javax.inject.Named;
 
 @Named
 @SessionScoped
@@ -41,7 +40,7 @@ public class LanguageManager implements Serializable {
         this.currentLocale = locale;
     }
 
-    public static Map<String, Locale> getLocales() {
+    public Map<String, Locale> getLocales() {
         return locales;
     }
 

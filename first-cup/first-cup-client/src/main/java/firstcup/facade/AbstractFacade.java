@@ -1,16 +1,14 @@
 package firstcup.facade;
 
-import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import java.util.List;
 
 public abstract class AbstractFacade<T> {
 
     private final Class<T> entityClass;
 
-    public AbstractFacade(Class<T> entityClass) {
+    AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
@@ -25,7 +23,8 @@ public abstract class AbstractFacade<T> {
     }
 
     public void remove(T entity) {
-        getEntityManager().remove(getEntityManager().merge(entity));
+        EntityManager em = getEntityManager();
+        em.remove(em.merge(entity));
     }
 
     public T find(Object id) {
@@ -33,24 +32,23 @@ public abstract class AbstractFacade<T> {
     }
 
     public List<T> findAll() {
-        CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        CriteriaQuery<T> cq = getEntityManager().getCriteriaBuilder().createQuery(entityClass);
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
 
     public List<T> findRange(int[] range) {
-        CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
+        CriteriaQuery<T> cq = getEntityManager().getCriteriaBuilder().createQuery(entityClass);
         cq.select(cq.from(entityClass));
-        Query q = getEntityManager().createQuery(cq);
-        q.setMaxResults(range[1] - range[0] + 1);
-        q.setFirstResult(range[0]);
-        return q.getResultList();
+        return getEntityManager().createQuery(cq)
+                .setMaxResults(range[1] - range[0] + 1)
+                .setFirstResult(range[0])
+                .getResultList();
     }
 
     public int count() {
-        CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
-        Root<T> rt = cq.from(entityClass);
-        cq.select(getEntityManager().getCriteriaBuilder().count(rt));
+        CriteriaQuery<Long> cq = getEntityManager().getCriteriaBuilder().createQuery(Long.class);
+        cq.select(getEntityManager().getCriteriaBuilder().count(cq.from(entityClass)));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }

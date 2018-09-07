@@ -2,30 +2,28 @@ package firstcup.ejb;
 
 import firstcup.entity.FirstCupUser;
 import firstcup.facade.FirstCupUserFacade;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Stateless
 public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
 
     private static final Logger logger = Logger.getLogger(DefaultDukesBirthdayManagerBean.class.getName());
 
-    @NotNull
-    private Optional<Integer> dukesAge = Optional.empty();
+    private Integer dukesAge;
 
     @Inject
     private FirstCupUserFacade userFacade;
@@ -37,7 +35,7 @@ public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
         logger.log(Level.INFO, "DefaultDukesBirthdayManager initialized");
     }
 
-    public void fetchDukesAge() {
+    private void fetchDukesAge() {
         Client client = null;
         try {
             client = ClientBuilder.newClient();
@@ -78,15 +76,15 @@ public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
 
     @Override
     public int getDukesAge() {
-        if (this.dukesAge.isPresent()) {
-            return this.dukesAge.get();
+        if (this.dukesAge != null) {
+            return this.dukesAge;
         } else {
             throw new WebApplicationException("Failed to fetch Duke's age");
         }
     }
 
     private void setDukesAge(Integer age) {
-        this.dukesAge = Optional.ofNullable(age);
+        this.dukesAge = age;
     }
 
     private static int dateToAge(Date date) {
@@ -110,6 +108,6 @@ public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
 
     @Override
     public List<FirstCupUser> getUserRange(int from, int to) {
-        return userFacade.findRange(new int[] {from, to});
+        return userFacade.findRange(new int[]{from, to});
     }
 }

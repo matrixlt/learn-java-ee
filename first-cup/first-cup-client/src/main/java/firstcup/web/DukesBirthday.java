@@ -1,17 +1,18 @@
-package fristcup.web;
+package firstcup.web;
 
 import firstcup.ejb.DukesBirthdayManager;
 import firstcup.entity.FirstCupUser;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.validation.constraints.NotNull;
 
 @Named
 @SessionScoped
@@ -19,7 +20,7 @@ public class DukesBirthday implements Serializable {
 
     private static final Logger logger = Logger.getLogger(DukesBirthday.class.getName());
 
-    @Inject
+    @EJB
     private DukesBirthdayManager birthdayManager;
 
     @NotNull

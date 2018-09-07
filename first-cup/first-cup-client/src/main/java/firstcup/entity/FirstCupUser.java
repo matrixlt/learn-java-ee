@@ -1,16 +1,10 @@
 package firstcup.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Temporal;
 
 @Entity
 @NamedQuery(name = "findAverageAgeDifference",
@@ -23,18 +17,13 @@ public class FirstCupUser implements Serializable {
 
     @Column(nullable = false)
     @Temporal(javax.persistence.TemporalType.DATE)
-    protected Calendar birthday;
+    private Calendar birthday;
 
     @Column(nullable = false)
-    protected int ageDifference;
+    private int ageDifference;
 
     // Default constructor must be provided
     public FirstCupUser() {
-    }
-
-    public FirstCupUser(Calendar birthday, int difference) {
-        this.birthday = birthday;
-        this.ageDifference = difference;
     }
 
     public FirstCupUser(Date date, int difference) {
