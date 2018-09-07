@@ -1,0 +1,13 @@
+{
+"version": 3,
+  "mappings": "AAAA,IAAK;EACH,WAAW,EAAE,6CAA6C;;;ACD5D,OAAQ;EACN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;;;ACLrB,eAAgB;EACd,eAAe,EAAE,QAAQ;;AACzB,kBAAG;EACD,MAAM,EAAE,qBAAqB;EAC7B,UAAU,EAAE,MAAM;;;ACJtB,oBAAqB;EACnB,KAAK,EAAE,GAAG;;;ACIZ,IAAK;EACH,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,MAAM;;;AAGhB,cAAe;EACb,MAAM,EAAE,MAAM",
+  "sources": [
+    "../scss/_font.scss",
+    "../scss/_header.scss",
+    "../scss/_table.scss",
+    "../scss/_message.scss",
+    "../scss/common.scss"
+  ],
+"names": [],
+"file": "common.css"
+}

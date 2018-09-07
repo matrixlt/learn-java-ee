@@ -1,0 +1,13 @@
+@import "_font.scss";
+@import "_header.scss";
+@import "_table.scss";
+@import "_message.scss";
+
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+#header, #main {
+  margin: 0 1rem;
+}

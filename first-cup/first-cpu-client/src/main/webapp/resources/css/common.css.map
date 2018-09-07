@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,IAAK;EACD,WAAW,EAAE,6CAA6C;;;ACD9D,OAAQ;EACJ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;;;ACLvB,eAAgB;EACZ,eAAe,EAAE,QAAQ;;AACzB,kBAAG;EACC,MAAM,EAAE,qBAAqB;EAC7B,UAAU,EAAE,MAAM;;;ACA1B,IAAK;EACD,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,MAAM;;;AAGlB,cAAe;EACX,MAAM,EAAE,MAAM",
-"sources": ["../scss/_font.scss","../scss/_header.scss","../scss/_table.scss","../scss/common.scss"],
-"names": [],
-"file": "common.css"
-}
