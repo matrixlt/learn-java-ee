@@ -1,5 +1,6 @@
 package cdidemo.exercise2;
 
+@SuppressWarnings("unused")
 public class Item {
 
     private int value;

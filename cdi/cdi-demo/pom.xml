@@ -7,7 +7,6 @@
         <version>0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.linyinfeng.projects</groupId>
     <artifactId>cdi-demo</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
