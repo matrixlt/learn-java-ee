@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- The Basics -->
@@ -42,6 +43,17 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <cargo.container.containerId>glassfish5x</cargo.container.containerId>
+        <cargo.container.home>${user.home}/glassfish5</cargo.container.home>
+        <cargo.container.type>installed</cargo.container.type>
+        <cargo.configuration.type>existing</cargo.configuration.type>
+        <cargo.configuration.home>
+            ${user.home}/glassfish5/glassfish/domains/domain1
+        </cargo.configuration.home>
+        <cargo.configuration.glassfish.domain.name>
+            domain1
+        </cargo.configuration.glassfish.domain.name>
     </properties>
 
     <!-- Build Settings -->
@@ -82,7 +94,7 @@
                             <cargo.glassfish.domain.name>
                                 ${cargo.configuration.glassfish.domain.name}
                             </cargo.glassfish.domain.name>
-                            <cargo.remote.password />
+                            <cargo.remote.password/>
                         </properties>
                     </configuration>
                 </configuration>
@@ -190,8 +202,12 @@
     <!--<mailingLists></mailingLists>-->
     <scm>
         <url>https://github.com/linyinfeng/learn-java-ee</url>
-        <connection>scm:git:git://github.com/linyinfeng/learn-java-ee.git</connection>
-        <developerConnection>scm:git:git@github.com:linyinfeng/learn-java-ee.git</developerConnection>
+        <connection>
+            scm:git:git://github.com/linyinfeng/learn-java-ee.git
+        </connection>
+        <developerConnection>
+            scm:git:git@github.com:linyinfeng/learn-java-ee.git
+        </developerConnection>
     </scm>
     <!--<prerequisites></prerequisites>-->
     <!--<repositories></repositories>-->
