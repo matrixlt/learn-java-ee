@@ -1,5 +1,6 @@
 # CSS Files
-first-cup/first-cup-client/src/main/webapp/resources/css/*
+first-cup/first-cup-client/src/main/webapp/resources/css/
+affable-bean/src/main/webapp/resources/css
 
 # Maven
 target/
