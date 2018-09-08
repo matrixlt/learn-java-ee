@@ -1,10 +1,11 @@
 package ejbhellobean;
 
-import java.util.List;
 import javax.ejb.Remote;
+import java.util.List;
 
 @Remote
 public interface HelloBean {
-    public void hello(String message);
-    public List<String> helloHistory();
+    void hello(String message);
+
+    List<String> helloHistory();
 }

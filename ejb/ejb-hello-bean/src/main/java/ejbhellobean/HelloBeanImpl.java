@@ -1,8 +1,8 @@
 package ejbhellobean;
 
+import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Stateless;
 
 @Stateless(name = "ejb/HelloFacade", mappedName="ejb/HelloFacade")
 public class HelloBeanImpl implements HelloBean {
@@ -10,7 +10,7 @@ public class HelloBeanImpl implements HelloBean {
     private final List<String> history;
     
     public HelloBeanImpl() {
-       this.history = new ArrayList<String>();
+        this.history = new ArrayList<>();
     }
 
     @Override
