@@ -4,6 +4,7 @@ import firstcup.entity.FirstCupUser;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public interface FirstCupUserFacade {
 
     void create(FirstCupUser entity);
