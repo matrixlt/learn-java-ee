@@ -1,4 +1,4 @@
-package cdidemo.excercise2;
+package cdidemo.exercise2;
 
 import java.util.ArrayList;
 import java.util.List;

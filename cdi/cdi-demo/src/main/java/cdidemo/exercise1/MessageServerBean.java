@@ -1,4 +1,4 @@
-package cdidemo.excercise1;
+package cdidemo.exercise1;
 
 import javax.ejb.Stateless;
 import javax.inject.Named;

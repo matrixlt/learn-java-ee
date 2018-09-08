@@ -1,7 +1,8 @@
-package cdidemo.excercise3;
+package cdidemo.exercise3;
 
-import cdidemo.excercise2.Item;
+import cdidemo.exercise2.Item;
 
 public interface ItemValidator {
+
     boolean isValid(Item item);
 }

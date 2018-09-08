@@ -1,20 +1,21 @@
-package cdidemo.excercise2;
+package cdidemo.exercise2;
 
-import cdidemo.excercise3.ItemErrorHandler;
-import cdidemo.excercise3.ItemValidator;
-import cdidemo.excercise4.Notify;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import cdidemo.exercise3.ItemErrorHandler;
+import cdidemo.exercise3.ItemValidator;
+import cdidemo.exercise4.Notify;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Named
 @RequestScoped
 public class ItemProcessor {
-    
-    static final Logger logger = Logger.getLogger(ItemProcessor.class.getName());
+
+    private static final Logger logger = Logger.getLogger(ItemProcessor.class.getName());
 
     @Inject @Demo
     private ItemDao itemDao;
@@ -32,7 +33,7 @@ public class ItemProcessor {
     public void execute() {
         List<Item> items = itemDao.fetchItems();
         items.forEach((item) -> {
-            Boolean isValid = itemValidator.isValid(item);
+            boolean isValid = itemValidator.isValid(item);
             logger.log(Level.INFO, "Item = {0} valid = {1}", new Object[]{item, isValid});
             if (isValid) {
                 itemErrorHandler.handleItem(item);

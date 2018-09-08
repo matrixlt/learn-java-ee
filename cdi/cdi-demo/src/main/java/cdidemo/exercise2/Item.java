@@ -1,4 +1,4 @@
-package cdidemo.excercise2;
+package cdidemo.exercise2;
 
 public class Item {
 
