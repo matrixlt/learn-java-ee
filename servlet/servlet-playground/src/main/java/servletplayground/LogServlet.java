@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.logging.Logger;
 
-@WebServlet(name = "LogServlet", urlPatterns = {"/log/*"})
+@WebServlet(name = "LogServlet", urlPatterns = {"/"})
 public class LogServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LogServlet.class.getName());
