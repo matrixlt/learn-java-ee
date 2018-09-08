@@ -18,9 +18,6 @@ public class LanguageManager implements Serializable {
     private static final Logger logger = Logger.getLogger(LanguageManager.class.getName());
     private static final Map<String, Locale> locales;
 //    private static final Map<String, Locale> toStringValueToLocales;
-    
-    private String currentLocale;
-    private String currentLocaleInBCP47; // Locale name in BCP47
 
     static {
         locales = new LinkedHashMap<>();
@@ -31,7 +28,10 @@ public class LanguageManager implements Serializable {
 //            toStringValueToLocales.put(entry.getValue().toString(), entry.getValue());
 //        });
     }
-    
+
+    private String currentLocale;
+    private String currentLocaleInBCP47; // Locale name in BCP47
+
     public String getCurrentLocale() {
         return currentLocale;
     }

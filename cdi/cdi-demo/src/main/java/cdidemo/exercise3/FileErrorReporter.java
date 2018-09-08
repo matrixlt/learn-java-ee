@@ -16,7 +16,7 @@ public class FileErrorReporter implements ItemErrorHandler {
     public void release() {
         System.out.println("Closing file error reporter");
     }
-    
+
     @Override
     public void handleItem(Item item) {
         System.out.println("Saving " + item + " to file");

@@ -9,16 +9,16 @@ import javax.inject.Named;
 public class Counter {
     private Integer counter;
 
-    synchronized public Integer getInteger() {
-        return this.counter;
-    }
-
     public Counter() {
         this.counter = 0;
     }
 
     public Counter(Integer c) {
         this.counter = c;
+    }
+
+    synchronized public Integer getInteger() {
+        return this.counter;
     }
 
     public synchronized void setInteger(Integer c) {

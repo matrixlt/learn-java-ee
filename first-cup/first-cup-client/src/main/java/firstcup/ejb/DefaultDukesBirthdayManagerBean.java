@@ -28,6 +28,20 @@ public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
     @Inject
     private FirstCupUserFacade userFacade;
 
+    private static int dateToAge(Date date) {
+        Calendar birthday = new GregorianCalendar();
+        birthday.setTime(date);
+        Calendar now = GregorianCalendar.getInstance();
+
+        int age = now.get(Calendar.YEAR) - birthday.get(Calendar.YEAR);
+        birthday.add(Calendar.YEAR, age);
+
+        if (now.before(birthday)) {
+            age--;
+        }
+        return age;
+    }
+
     @Produces
     @PostConstruct
     public void init() {
@@ -85,20 +99,6 @@ public class DefaultDukesBirthdayManagerBean implements DukesBirthdayManager {
 
     private void setDukesAge(Integer age) {
         this.dukesAge = age;
-    }
-
-    private static int dateToAge(Date date) {
-        Calendar birthday = new GregorianCalendar();
-        birthday.setTime(date);
-        Calendar now = GregorianCalendar.getInstance();
-
-        int age = now.get(Calendar.YEAR) - birthday.get(Calendar.YEAR);
-        birthday.add(Calendar.YEAR, age);
-
-        if (now.before(birthday)) {
-            age--;
-        }
-        return age;
     }
 
     @Override

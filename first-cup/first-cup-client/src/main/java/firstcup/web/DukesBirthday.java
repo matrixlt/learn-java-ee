@@ -74,7 +74,7 @@ public class DukesBirthday implements Serializable {
     public void setAgeDiff(int ageDiff) {
         this.ageDiff = ageDiff;
     }
-    
+
     public List<FirstCupUser> getAllUser() {
         return birthdayManager.getAllUser();
     }

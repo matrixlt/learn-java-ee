@@ -17,18 +17,19 @@ public class ItemProcessor {
 
     private static final Logger logger = Logger.getLogger(ItemProcessor.class.getName());
 
-    @Inject @Demo
+    @Inject
+    @Demo
     private ItemDao itemDao;
-    
+
     @Inject
     private ItemValidator itemValidator;
-        
+    @Inject
+    @Notify
+    private ItemErrorHandler itemErrorHandler;
+
     public ItemProcessor() {
         logger.info("Item processor created");
     }
-
-    @Inject @Notify
-    private ItemErrorHandler itemErrorHandler;
 
     public void execute() {
         List<Item> items = itemDao.fetchItems();

@@ -9,10 +9,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Notify
-public class EventItemHandler implements ItemErrorHandler{
+public class EventItemHandler implements ItemErrorHandler {
 
     private static final Logger logger = Logger.getLogger(EventItemHandler.class.getName());
-    
+
     @Inject
     private Event<Item> itemEvent;
 

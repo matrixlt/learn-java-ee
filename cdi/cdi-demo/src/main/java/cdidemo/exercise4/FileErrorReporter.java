@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class FileErrorReporter implements ItemErrorHandler {
 
     private static final Logger logger = Logger.getLogger(FileErrorReporter.class.getName());
-    
+
     public void eventFired(@Observes Item item) {
         handleItem(item);
     }

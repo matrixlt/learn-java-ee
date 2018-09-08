@@ -1,11 +1,11 @@
 package dukesage;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 @Path("dukesAge")
 public class DukesAgeResource {

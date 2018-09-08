@@ -1,14 +1,17 @@
 package jsfsimplehello;
 
-import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 @Named
 @SessionScoped
 public class Hello implements Serializable {
-    public Hello() { }
     private String world = "Hello, world!";
+
+    public Hello() {
+    }
+
     public String getWorld() {
         this.world += "!";
         return this.world;
