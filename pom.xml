@@ -34,8 +34,8 @@
         <module>jpa</module>
         <module>ejb</module>
         <module>cdi</module>
-        <module>affable-bean</module>
         <module>first-cup</module>
+        <module>complex</module>
     </modules>
     <properties>
         <!-- Use JRE 1.8 for GlassFish -->
