@@ -9,7 +9,7 @@ public interface DukesBirthdayManager {
 
     int getDukesAge();
 
-    void saveUserBirthday(Date brithday);
+    void saveUserBirthday(Date birthday);
 
     int getAgeDifferenceToDuke(Date birthday);
 
