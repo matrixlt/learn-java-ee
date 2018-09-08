@@ -3,7 +3,7 @@ package jpasimplemodel;
 import javax.persistence.*;
 import java.util.List;
 
-public class Main {
+class Main {
     private static final String PERSISTENCE_UNIT_NAME = "todos";
     private static EntityManagerFactory factory;
     

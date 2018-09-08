@@ -18,6 +18,7 @@ public class LogServlet extends HttpServlet {
     @Inject
     private Counter counter;
 
+    @SuppressWarnings({"Duplicates", "SynchronizationOnLocalVariableOrMethodParameter"})
     private static void increaseSessionCounter(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
         synchronized (httpSession) {
@@ -30,6 +31,7 @@ public class LogServlet extends HttpServlet {
         }
     }
 
+    @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
     private static Integer getSessionCounter(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
         synchronized (httpSession) {
@@ -37,6 +39,7 @@ public class LogServlet extends HttpServlet {
         }
     }
 
+    @SuppressWarnings({"Duplicates", "SynchronizationOnLocalVariableOrMethodParameter"})
     private void increaseContextCounter() {
         ServletContext servletContext = this.getServletContext();
         synchronized (servletContext) {
@@ -49,6 +52,7 @@ public class LogServlet extends HttpServlet {
         }
     }
 
+    @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
     private Integer getContextCounter() {
         ServletContext servletContext = this.getServletContext();
         synchronized (servletContext) {
@@ -56,6 +60,7 @@ public class LogServlet extends HttpServlet {
         }
     }
 
+    @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
     private void logRequestBack(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         this.increaseContextCounter();
@@ -66,7 +71,7 @@ public class LogServlet extends HttpServlet {
         response.setStatus(200);
 
         try (PrintWriter writer = response.getWriter();
-                BufferedReader reader = new BufferedReader(request.getReader())) {
+             BufferedReader reader = new BufferedReader(request.getReader())) {
             writer.println("Counter: " + this.getContextCounter());
             writer.println("Session counter: " + getSessionCounter(request));
             writer.println("ApplicationScoped counter: " + counter.getInteger());

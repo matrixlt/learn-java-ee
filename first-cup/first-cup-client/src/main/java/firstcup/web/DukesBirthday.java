@@ -43,6 +43,7 @@ public class DukesBirthday implements Serializable {
         return birthdayManager.getAverageAgeDifference();
     }
 
+    @SuppressWarnings("SameReturnValue")
     public String processBirthday() {
         this.ageDiff = birthdayManager.getAgeDifferenceToDuke((Date) this.yourBirthday.clone());
         this.ageDiffAbs = Math.abs(this.ageDiff);

@@ -7,6 +7,7 @@ import javax.inject.Named;
 @Stateless
 public class MessageServerBean {
 
+    @SuppressWarnings("SameReturnValue")
     public String getMessage() {
         return "Hello Weld!";
     }

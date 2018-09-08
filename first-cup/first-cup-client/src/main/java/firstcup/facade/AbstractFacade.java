@@ -4,10 +4,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
-public abstract class AbstractFacade<T> {
+abstract class AbstractFacade<T> {
 
     private final Class<T> entityClass;
 
+    @SuppressWarnings("SameParameterValue")
     AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
