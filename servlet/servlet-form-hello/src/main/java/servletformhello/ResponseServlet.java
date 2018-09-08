@@ -1,6 +1,5 @@
 package servletformhello;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +13,7 @@ public class ResponseServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         try (PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
             if (username != null && username.length() > 0) {
