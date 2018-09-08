@@ -1,22 +1,14 @@
 package servletplayground;
 
+import javax.inject.Inject;
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import java.util.logging.Logger;
-import javax.inject.Inject;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "LogServlet", urlPatterns = {"/log/*"})
 public class LogServlet extends HttpServlet {
@@ -25,25 +17,6 @@ public class LogServlet extends HttpServlet {
 
     @Inject
     private Counter counter;
-
-    private void increaseContextCounter() {
-        ServletContext servletContext = this.getServletContext();
-        synchronized (servletContext) {
-            Integer logCounter = (Integer) servletContext.getAttribute("logCounter");
-            if (logCounter == null) {
-                servletContext.setAttribute("logCounter", 1);
-            } else {
-                servletContext.setAttribute("logCounter", logCounter + 1);
-            }
-        }
-    }
-
-    private Integer getContextCounter() {
-        ServletContext servletContext = this.getServletContext();
-        synchronized (servletContext) {
-            return (Integer) servletContext.getAttribute("logCounter");
-        }
-    }
 
     private static void increaseSessionCounter(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
@@ -64,8 +37,27 @@ public class LogServlet extends HttpServlet {
         }
     }
 
+    private void increaseContextCounter() {
+        ServletContext servletContext = this.getServletContext();
+        synchronized (servletContext) {
+            Integer logCounter = (Integer) servletContext.getAttribute("logCounter");
+            if (logCounter == null) {
+                servletContext.setAttribute("logCounter", 1);
+            } else {
+                servletContext.setAttribute("logCounter", logCounter + 1);
+            }
+        }
+    }
+
+    private Integer getContextCounter() {
+        ServletContext servletContext = this.getServletContext();
+        synchronized (servletContext) {
+            return (Integer) servletContext.getAttribute("logCounter");
+        }
+    }
+
     private void logRequestBack(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         this.increaseContextCounter();
         increaseSessionCounter(request);
         counter.increase();
@@ -149,13 +141,13 @@ public class LogServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         this.logRequestBack(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
         this.logRequestBack(request, response);
     }
 
