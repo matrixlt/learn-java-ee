@@ -28,7 +28,7 @@ public class ItemProcessor {
     private ItemErrorHandler itemErrorHandler;
 
     public ItemProcessor() {
-        logger.info("Item processor created");
+        logger.info("Item processor created...");
     }
 
     public void execute() {

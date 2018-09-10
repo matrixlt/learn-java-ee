@@ -9,6 +9,6 @@ public class MessageServerBean {
 
     @SuppressWarnings("SameReturnValue")
     public String getMessage() {
-        return "Hello Weld!";
+        return "Hello Weld!!!!!!!!!!!!!";
     }
 }
